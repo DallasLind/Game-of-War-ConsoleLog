@@ -1,35 +1,40 @@
-// Establishing the cards players utilize
-let suits = ["clubs", "hearts", "diamonds", "spades"];
-let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, "J", "Q", "K", "A"];
+class Card {
+	constructor(suits, rank, score) {
+		this.suits = suits;
+		this.rank = rank;
+		this.score = score;
+			}
+		}
+
+class Deck {
+	constructor(length, cards) {
+		this.length = 52;
+		this.cards = [];
+	}	
+
+function createDeck(suits, rank) {
+	let suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
+	let rank = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+		for (let i = 0; i < 13; i++) {
+		for(let j = 0; j < 4; j++) {
+		}
+	} deck.push(suits[i]);
+	}
+
+function draw() {
+		cards[Math.floor(Math.random()*cards.length)];
+		}
 // 14 = Ace/ 13 = King/ 12 = Queen/ 11 = Joker
 
 //Fill out user attributes here + if statements when they win
-let player1 = {
+let player1 = [];
+let player2 = [];
+let wins = [];
 
-}
-
-let player2 = {
-
-}
 
 //Shuffle cards 
-function shuffle(array){
-	let currentIndex.array.length;
-	let randomIndex;
-	let temporaryValue;
-	while(currentIndex > 0) {
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-	}
-	return array;
-}
 
-//Split off into two decks randomly
-function dealCards(){
-	for(var cardInDeck){
-		playerOne.push(card)
-	};
-}
+
 
 //Have the cards face-down, unknown to the other player
 
