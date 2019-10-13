@@ -20,17 +20,16 @@ class Player {
 
 //Assemble Deck
 
-function allCards() {
-	let deck = [];
+let deck = [];
 
+function allCards() {
     for(let i = 0; i < ranks.length; i++) {
         for(let s = 0; s < suits.length; s++) {
                let card = {Ranks: ranks[i], Suits: suits[i]};
                deck.push(card);
         }
     }
-    return deck;
-}
+  }
 
 allCards();
 
@@ -40,9 +39,11 @@ let player2Hand = Player.hand;
 
 function shuffleDeck(deck) {
     for(var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), 
-    x = deck[--i], deck[i] = deck[j], deck[j] = x);
+    	x = deck[--i], deck[i] = deck[j], deck[j] = x);
+			return deck;
 }
 
+shuffleDeck(deck);
 
 
 
