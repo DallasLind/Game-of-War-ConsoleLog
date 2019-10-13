@@ -1,8 +1,9 @@
+//Variables to refer back to for the game
 let suits = ["heart","diamond","spade","club"]
 let ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
 let scores = [2,3,4,5,6,7,8,9,10,11,12,13,14]
 
-
+//create classes for card and player to reference later
 class Card {
 	constructor(suits, rank, score) {
 		this.suits = suits;
@@ -17,7 +18,11 @@ class Player1 {
 	}
 }
 
+//Create array to push finished deck into
 let deck = [];
+
+
+//Assemble Deck
 
 function allCards() {
     for(let i = 0; i < rank.length; i++) {
@@ -31,14 +36,13 @@ function allCards() {
     }
 }
 
-
-// 14 = Ace/ 13 = King/ 12 = Queen/ 11 = Joker
+//Shuffle cards 
 
 //Fill out user attributes here + if statements when they win
 
 
 
-//Shuffle cards 
+
 
 
 
