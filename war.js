@@ -19,7 +19,7 @@ class Player {
 }
 
 //Create array to push finished deck into
-let allDeck = [];
+let deck = [];
 
 
 //Assemble Deck
@@ -27,14 +27,14 @@ let allDeck = [];
 function allCards() {
     for(let i = 0; i < ranks.length; i++) {
         for(let s = 0; s < suits.length; s++) {
-               let rank = ranks[i];
-               let suit = suits[s];
-               let score = scores[i];
-               let card = new Card(suits, rank, score);
-               allDeck.push(card);
+               let card = {Ranks: ranks[i], Suits: suits[i]};
+               deck.push(card);
         }
     }
+    return deck;
 }
+
+
 
 allCards();
 
