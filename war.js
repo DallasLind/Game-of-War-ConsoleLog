@@ -1,16 +1,16 @@
 window.onload = function(){
 //Starts games upon loading
+console.log("We're live and ready to go to WAR!");
 //Variables to refer back to for the game
 let suits = ["heart","diamond","spade","club"];
 let ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"];
-let scores = [2,3,4,5,6,7,8,9,10,11,12,13,14];
 
 //create classes for card and player to reference later
 class Card {
-	constructor(suits, rank, score) {
+	constructor(suits, rank) {
 		this.suits = suits;
 		this.rank = rank;
-		this.score = score;
+		this.score = rankIndex +2;
 			}
 		}
 
