@@ -50,31 +50,17 @@ shuffleDeck(deck);
 
 // Deal out cards to two players
 
-
-let	playerOneHand = deck.splice(0,26)
-let	playerTwoHand = deck.splice(0,26)
-
-// Function for war if cards are same value
-function war(Player) {
-	let warPlayerOne = playerOneHand.slice(0, 3);
-	let warPlayerTwo = playerTwoHand.slice(0, 3); 
-	if (playerOneHand.score[3] > playerTwoHand.score[3]) {
-		playerOneHand.push(warPlayerOne);
-		playerTwoHand.pop(warPlayerTwo);
-		alert(`Player 1 Won This War! Player1 now has ${playerOneHand.length} !`)
-	} else (playerTwoHand.score[3] > playerOneHand.score[3]) 
-		playerTwoHand.push(warPlayerTwo);
-		playerOneHand.pop(warPlayerOne);
-		alert(`Player 2 Won This War! Player2 now has ${playerTwoHand.length} !`)
-	}
+function dealCards(deal,player1,player2){
+    while(deal.length){
+        player1.hand.push(deal.shift());
+        player2.hand.push(deal.shift());
+    }
 }
-
-
 
 
 // Games rules
 
-function playGame(Player) {
+function playGame(player1, player2) {
 	while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
 		console.log(`${player1.name} plays: ${player1Card.rank} of ${player1Card.suit}`);   
     	console.log(`${player2.name} plays: ${player2Card.rank} of ${player2Card.suit}`);
@@ -94,6 +80,21 @@ function playGame(Player) {
 		 alert(`DRAW!`)
 		 war();
 }
+
+// Function for war if cards are same value
+function war(Player) {
+	let warPlayerOne = playerOneHand.slice(0, 3);
+	let warPlayerTwo = playerTwoHand.slice(0, 3); 
+	if (playerOneHand.score[3] > playerTwoHand.score[3]) {
+		playerOneHand.push(warPlayerOne);
+		playerTwoHand.pop(warPlayerTwo);
+		alert(`Player 1 Won This War! Player1 now has ${playerOneHand.length} !`)
+	} else (playerTwoHand.score[3] > playerOneHand.score[3]) 
+		playerTwoHand.push(warPlayerTwo);
+		playerOneHand.pop(warPlayerOne);
+		alert(`Player 2 Won This War! Player2 now has ${playerTwoHand.length} !`)
+	}
+
 function winner() {
 	if (playerOneHand.length === 51) {
 		alert(`PLAYER1 WINS!!`);
@@ -104,7 +105,8 @@ function winner() {
 			}
 		}
 	winner();
-}		 
+}	
+}	 
 
 playGame();
 
