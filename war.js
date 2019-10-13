@@ -22,6 +22,9 @@ class Player {
 }
 
 //Assemble Deck
+let player1 = [];
+let player2 = [];
+
 
 let deck = [];
 
@@ -35,10 +38,6 @@ function allCards() {
   }
 
 allCards();
-
-let player1Hand = Player.hand;
-let player2Hand = Player.hand;
-
 //Shuffle cards 
 
 function shuffleDeck(deck) {
@@ -49,22 +48,24 @@ function shuffleDeck(deck) {
 
 shuffleDeck(deck);
 
-// Deal out cards to two players 
-	player1Hand = deck.splice(0,26)
-	player2Hand = deck.splice(0,26)
+// Deal out cards to two players
+
+
+let	playerOneHand = deck.splice(0,26)
+let	playerTwoHand = deck.splice(0,26)
 
 // Function for war if cards are same value
-function war(player1Hand, player2Hand) {
-	let warPlayer1 = player1Hand.slice(0, 3);
-	let warPlayer2 = player2Hand.slice(0, 3); 
-	if (player1Hand.score[3] > player2Hand.score[3]) {
-		player1Hand.push(warPlayer1);
-		player2Hand.pop(warPlayer2);
-		alert(`Player 1 Won This War! Player1 now has ${player1Hand.length} !`)
-	} else (player2Hand.score[3] > player1Hand.score[3]) 
-		player2Hand.push(warPlayer2);
-		player1Hand.pop(warPlayer1);
-		alert(`Player 2 Won This War! Player2 now has ${player2Hand.length} !`)
+function war(Player) {
+	let warPlayerOne = playerOneHand.slice(0, 3);
+	let warPlayerTwo = playerTwoHand.slice(0, 3); 
+	if (playerOneHand.score[3] > playerTwoHand.score[3]) {
+		playerOneHand.push(warPlayerOne);
+		playerTwoHand.pop(warPlayerTwo);
+		alert(`Player 1 Won This War! Player1 now has ${playerOneHand.length} !`)
+	} else (playerTwoHand.score[3] > playerOneHand.score[3]) 
+		playerTwoHand.push(warPlayerTwo);
+		playerOneHand.pop(warPlayerOne);
+		alert(`Player 2 Won This War! Player2 now has ${playerTwoHand.length} !`)
 	}
 }
 
@@ -73,30 +74,40 @@ function war(player1Hand, player2Hand) {
 
 // Games rules
 
-function playGame(player1Hand, player2Hand) {
-	while (player1Hand.length !== 51 || player2Hand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
+function playGame(Player) {
+	while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
 		console.log(`${player1.name} plays: ${player1Card.rank} of ${player1Card.suit}`);   
     	console.log(`${player2.name} plays: ${player2Card.rank} of ${player2Card.suit}`);
     		//The console.log up above is for all relevant plays below so it'll pop up separate of the alert		 
 		{
-			if (player1Hand.score[0] > player2Hand.score[0]) {
-				player1Hand.push(player2Hand[0]);
-				player2Hand.pop(); 
-				alert(`Player 1 Has Won This Round! Player1 now has ${player1Hand.length} !`);
+			if (playerOneHand.score[0] > playerTwoHand.score[0]) {
+				playerOneHand.push(playerTwoHand[0]);
+				playerTwoHand.pop(); 
+				alert(`Player 1 Has Won This Round! Player1 now has ${playerOneHand.length} !`);
 					//Should move and remove card from player2 to player 1
-	} else if (player1Hand.score[0] < player2Hand.score[0]) {
-				player2Hand.push(player1Hand[0]);
-				player1Hand.pop(); 
-				alert(`Player 2 Has Won This Round! Player2 now has ${player2Hand.length} !`);
+	} else if (playerOneHand.score[0] < playerTwoHand.score[0]) {
+				playerTwoHand.push(playerOneHand[0]);
+				playerOneHand.pop(); 
+				alert(`Player 2 Has Won This Round! Player2 now has ${playerTwoHand.length} !`);
 					//Same as above but reversed position
-}	else if (player1Hand.score[0] === player2Hand.score[0]){
-		 
-
+}	else  (playerOneHand.score[0] === playerTwoHand.score[0])
+		 alert(`DRAW!`)
+		 war();
 }
-}
-
-
-
+function winner() {
+	if (playerOneHand.length === 51) {
+		alert(`PLAYER1 WINS!!`);
+	} else if (playerTwoHand.length === 51) {
+		alert(`PLAYER2 WINS!!`);
+	} else {
+		alert(`You have reached diplomacy`);
+			}
+		}
+	winner();
+}		 
 
 playGame();
-} //Ending to onload 
+
+
+
+
