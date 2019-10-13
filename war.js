@@ -53,6 +53,14 @@ shuffleDeck(deck);
 	player1Hand = deck.splice(0,26)
 	player2Hand = deck.splice(0,26)
 
+// Function for war if cards are same value
+function war(player1Hand, player2Hand) {
+	let warPlayer1 = player1Hand.slice(0, 3);
+	let warPlayer2 = player2Hand.slice(0, 3); 
+}
+
+
+
 
 // Games rules
 
@@ -73,7 +81,8 @@ function playGame(player1Hand, player2Hand) {
 				alert(`Player 2 Has Won This Round! Player2 now has ${player2Hand.length} !`);
 					//Same as above but reversed position
 }	else if (player1Hand.score[0] === player2Hand.score[0]){
-	let war = 
+		 
+
 }
 }
 
