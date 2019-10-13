@@ -38,6 +38,18 @@ let player1Hand = Player.hand;
 let player2Hand = Player.hand;
 //Shuffle cards 
 
+function shuffleDeck(deck) {
+    for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+shuffleDeck(deck);
+
+
+
+
 //Fill out user attributes here + if statements when they win
 
 
