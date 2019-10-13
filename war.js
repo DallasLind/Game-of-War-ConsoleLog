@@ -1,3 +1,5 @@
+window.onload = function(){
+//Starts games upon loading
 //Variables to refer back to for the game
 let suits = ["heart","diamond","spade","club"];
 let ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"];
@@ -52,9 +54,14 @@ shuffleDeck(deck);
 
 // Games rules
 
+function playGame() {
+
+}
 
 
 
 
 
 
+
+} //Ending to onload 
