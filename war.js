@@ -15,7 +15,8 @@ class Card {
 		}
 
 class Player {
-	constructor(hand){
+	constructor(name, hand){
+		this. name = name;
 		this.hand = [];
 	}
 }
@@ -55,12 +56,13 @@ shuffleDeck(deck);
 
 // Games rules
 
-function playGame() {
+function playGame(player1Hand, player2Hand) {
 	while (player1Hand.length !== 51 || player2Hand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
 		{
 			if (player1Hand.score[0] > player2Hand.score[0]) {
 				player1Hand.push(player2Hand[0]);
 				player2Hand.pop(); 
+				console.log()
 				alert(`Player 1 Has Won This Round! Player1 now has ${player1Hand.length} !`);
 					//Should move and remove card from player2 to player 1
 
