@@ -55,7 +55,16 @@ shuffleDeck(deck);
 // Games rules
 
 function playGame() {
-
+	while (player1Hand.length && player2Hand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
+		{
+			if (player1Hand.score[0] > player2Hand.score[0]) {
+				console.log("Player 1 Has Won This Round!");
+			}
+	} else if (player1Hand.score[0] < player2Hand.score[0]) {
+				console.log("Player 2 Has Won This Round!");
+	}
+}	else if (player1Hand.score[0] === player2Hand[0]) {
+				console.log("Time for war!");
 }
 
 
