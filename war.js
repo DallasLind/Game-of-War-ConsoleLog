@@ -45,9 +45,16 @@ function shuffleDeck(deck) {
 
 shuffleDeck(deck);
 
+// Deal out cards to two players 
+
+player1Hand = deck.splice(0,26)
+player2Hand = deck.splice(0,26)
 
 
-//Fill out user attributes here + if statements when they win
+// Rule set (if/else statements?)
+
+
+// 
 
 
 
@@ -55,15 +62,3 @@ shuffleDeck(deck);
 
 
 
-//Have the cards face-down, unknown to the other player
-
-//Use splice() to add or remove from arrays to each other
-
-//Actual ruleset of if/else statements depending on which card is played
-
-
-//Alert for "win" when win state is achieved
-//Print who won, the round itself, and how many cards they have now
-
-
-//Bonus if time to spare: work on saving scores throughout matches
