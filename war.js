@@ -47,11 +47,20 @@ shuffleDeck(deck);
 
 // Deal out cards to two players 
 
-player1Hand = deck.splice(0,26)
-player2Hand = deck.splice(0,26)
+function dealDeck() {
+	player1Hand = deck.splice(0,26)
+	player2Hand = deck.splice(0,26)
+}
 
+dealDeck();
 
-// Rule set (if/else statements?)
+// Start the game 
+
+function startGame() {
+	shuffleDeck();
+	dealDeck();
+	console.log("Let's go!");
+}
 
 
 // 
