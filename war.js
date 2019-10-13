@@ -1,3 +1,8 @@
+let suits = ["heart","diamond","spade","club"]
+let ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
+let scores = [2,3,4,5,6,7,8,9,10,11,12,13,14]
+
+
 class Card {
 	constructor(suits, rank, score) {
 		this.suits = suits;
@@ -12,14 +17,7 @@ class Deck {
 		this.cards = [];
 	}	
 
-function createDeck(suits, rank) {
-	let suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
-	let rank = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-		for (let i = 0; i < 13; i++) {
-		for(let j = 0; j < 4; j++) {
-		}
-	} deck.push(suits[i]);
-	}
+
 
 function draw() {
 		cards[Math.floor(Math.random()*cards.length)];
