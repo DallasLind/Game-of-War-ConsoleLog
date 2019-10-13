@@ -50,10 +50,7 @@ shuffleDeck(deck);
 	player1Hand = deck.splice(0,26)
 	player2Hand = deck.splice(0,26)
 
-// Start the game 
-
-
-// 
+// Games rules
 
 
 
