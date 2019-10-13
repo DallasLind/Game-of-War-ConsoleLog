@@ -11,6 +11,14 @@ class Card {
 			}
 		}
 
+class Player1 {
+	constructor(hand){
+		this.hand = [];
+	}
+}
+
+
+
 class Deck {
 	constructor(length, cards) {
 		this.length = 52;
@@ -25,9 +33,7 @@ function draw() {
 // 14 = Ace/ 13 = King/ 12 = Queen/ 11 = Joker
 
 //Fill out user attributes here + if statements when they win
-let player1 = [];
-let player2 = [];
-let wins = [];
+
 
 
 //Shuffle cards 
