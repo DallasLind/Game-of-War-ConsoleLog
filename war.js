@@ -35,6 +35,7 @@ allCards();
 
 let player1Hand = Player.hand;
 let player2Hand = Player.hand;
+
 //Shuffle cards 
 
 function shuffleDeck(deck) {
@@ -46,21 +47,10 @@ function shuffleDeck(deck) {
 shuffleDeck(deck);
 
 // Deal out cards to two players 
-
-function dealDeck() {
 	player1Hand = deck.splice(0,26)
 	player2Hand = deck.splice(0,26)
-}
-
-dealDeck();
 
 // Start the game 
-
-function startGame() {
-	shuffleDeck();
-	dealDeck();
-	console.log("Let's go!");
-}
 
 
 // 
