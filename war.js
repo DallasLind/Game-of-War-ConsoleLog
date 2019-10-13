@@ -57,6 +57,15 @@ shuffleDeck(deck);
 function war(player1Hand, player2Hand) {
 	let warPlayer1 = player1Hand.slice(0, 3);
 	let warPlayer2 = player2Hand.slice(0, 3); 
+	if (player1Hand.score[3] > player2Hand.score[3]) {
+		player1Hand.push(warPlayer1);
+		player2Hand.pop(warPlayer2);
+		alert(`Player 1 Won This War! Player1 now has ${player1Hand.length} !`)
+	} else (player2Hand.score[3] > player1Hand.score[3]) {
+		player2Hand.push(warPlayer2);
+		player1Hand.pop(warPlayer1);
+		alert(`Player 2 Won This War! Player2 now has  ${player2Hand.length} !`)
+	}
 }
 
 
@@ -81,9 +90,8 @@ function playGame(player1Hand, player2Hand) {
 				alert(`Player 2 Has Won This Round! Player2 now has ${player2Hand.length} !`);
 					//Same as above but reversed position
 }	else if (player1Hand.score[0] === player2Hand.score[0]){
-		 
-
-}
+		war();
+		}
 }
 
 
