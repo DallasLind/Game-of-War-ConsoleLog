@@ -67,22 +67,18 @@ function playGame(player1Hand, player2Hand) {
 				player2Hand.pop(); 
 				alert(`Player 1 Has Won This Round! Player1 now has ${player1Hand.length} !`);
 					//Should move and remove card from player2 to player 1
-
-			}
 	} else if (player1Hand.score[0] < player2Hand.score[0]) {
 				player2Hand.push(player1Hand[0]);
 				player1Hand.pop(); 
 				alert(`Player 2 Has Won This Round! Player2 now has ${player2Hand.length} !`);
-					//Same as above but reversed positions
-	}
-}	else if (player1Hand.score[0] === player2Hand[0]) {
-				alert("Time for war!");
+					//Same as above but reversed position
+}	else if (player1Hand.score[0] === player2Hand.score[0]){
+	let war = 
+}
+}
 
 
 
 
-
-
-
-
+playGame();
 } //Ending to onload 
