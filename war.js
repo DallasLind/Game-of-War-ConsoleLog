@@ -17,19 +17,21 @@ class Player1 {
 	}
 }
 
+let deck = [];
+
+function allCards() {
+    for(let i = 0; i < rank.length; i++) {
+        for(let s = 0; s < suits.length; s++) {
+               let rank = ranks[i]
+               let suit = suits[s]
+               let score = scores[i]
+               let card = new Card(suits, rank, score)
+               deck.push(card)
+        }
+    }
+}
 
 
-class Deck {
-	constructor(length, cards) {
-		this.length = 52;
-		this.cards = [];
-	}	
-
-
-
-function draw() {
-		cards[Math.floor(Math.random()*cards.length)];
-		}
 // 14 = Ace/ 13 = King/ 12 = Queen/ 11 = Joker
 
 //Fill out user attributes here + if statements when they win
