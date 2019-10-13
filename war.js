@@ -52,6 +52,7 @@ shuffleDeck(deck);
 	player1Hand = deck.splice(0,26)
 	player2Hand = deck.splice(0,26)
 
+
 // Games rules
 
 function playGame() {
@@ -59,9 +60,16 @@ function playGame() {
 		{
 			if (player1Hand.score[0] > player2Hand.score[0]) {
 				console.log("Player 1 Has Won This Round!");
+				player1Hand.push(player2Hand[0]);
+				player2Hand.shift(); 
+					//Should move and remove card from player2 to player 1
+
 			}
 	} else if (player1Hand.score[0] < player2Hand.score[0]) {
 				console.log("Player 2 Has Won This Round!");
+				player2Hand.push(player1Hand[0]);
+				player1Hand.shift(); 
+					//Same as above but reversed positions
 	}
 }	else if (player1Hand.score[0] === player2Hand[0]) {
 				console.log("Time for war!");
