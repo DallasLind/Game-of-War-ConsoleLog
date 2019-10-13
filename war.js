@@ -56,24 +56,24 @@ shuffleDeck(deck);
 // Games rules
 
 function playGame() {
-	while (player1Hand.length !== 52 || player2Hand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
+	while (player1Hand.length !== 51 || player2Hand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
 		{
 			if (player1Hand.score[0] > player2Hand.score[0]) {
-				alert("Player 1 Has Won This Round!");
 				player1Hand.push(player2Hand[0]);
-				player2Hand.shift(); 
+				player2Hand.pop(); 
+				alert(`Player 1 Has Won This Round! Player1 now has ${player1Hand.length} !`);
 					//Should move and remove card from player2 to player 1
 
 			}
 	} else if (player1Hand.score[0] < player2Hand.score[0]) {
-				alert("Player 2 Has Won This Round!");
 				player2Hand.push(player1Hand[0]);
-				player1Hand.shift(); 
+				player1Hand.pop(); 
+				alert(`Player 2 Has Won This Round! Player2 now has ${player2Hand.length} !`);
 					//Same as above but reversed positions
 	}
 }	else if (player1Hand.score[0] === player2Hand[0]) {
 				alert("Time for war!");
-}
+
 
 
 
