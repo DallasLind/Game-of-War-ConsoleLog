@@ -10,14 +10,14 @@ class Card {
 	constructor(suits, rank) {
 		this.suits = suits;
 		this.rank = rank;
-		this.score = rankIndex +2;
+		this.score = score;
 			}
 		}
 
 class Player {
 	constructor(name, hand){
 		this.name = name;
-		this.hand = [];
+		this.hand = hand;
 	}
 }
 
@@ -50,23 +50,18 @@ shuffleDeck(deck);
 
 // Deal out cards to two players
 
-function dealHands(deal,player1,player2){
-    while(deal.length){
-        player1.hand.push(deal.shift());
-        player2.hand.push(deal.shift());
-    }
+function dealDeck() {
+	playerOneHand = deck.splice(0,26);
+	playerTwoHand = deck.splice(0,26);
 }
 
 
 // Games rules
 
-function playGame(player1, player2) {
-		let playerOneHand = player1.hand.shift();
-        let playerTwoHand = player2.hand.shift();
-        {
+function playGame(playerOneHand, playerTwoHand) {
         while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) {//Means the below code is active while a player doesn't yet have all cards
-		console.log(`${player1.name} plays: ${player1Card.rank} of ${player1Card.suit}`);   
-    	console.log(`${player2.name} plays: ${player2Card.rank} of ${player2Card.suit}`);
+		console.log(`Player1 plays: ${player1Card.rank} of ${player1Card.suit}`);   
+    	console.log(`Player2 plays: ${player2Card.rank} of ${player2Card.suit}`);
     		//The console.log up above is for all relevant plays below so it'll pop up separate of the alert		 
 		{
 			if (playerOneHand.score[0] > playerTwoHand.score[0]) {
@@ -112,7 +107,7 @@ function war(Player) {
 				alert(`You have reached diplomacy`);
 				}
 		}
-	}
+	
 
 
 
