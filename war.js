@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function(){}
 //Starts games upon loading
 console.log("We're live and ready to go to WAR!");
 //Variables to refer back to for the game
@@ -16,7 +16,7 @@ class Card {
 
 class Player {
 	constructor(name, hand){
-		this. name = name;
+		this.name = name;
 		this.hand = [];
 	}
 }
@@ -50,7 +50,7 @@ shuffleDeck(deck);
 
 // Deal out cards to two players
 
-function dealCards(deal,player1,player2){
+function dealHands(deal,player1,player2){
     while(deal.length){
         player1.hand.push(deal.shift());
         player2.hand.push(deal.shift());
@@ -61,7 +61,10 @@ function dealCards(deal,player1,player2){
 // Games rules
 
 function playGame(player1, player2) {
-	while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) //Means the below code is active while a player doesn't yet have all cards
+		let playerOneHand = player1.hand.shift();
+        let playerTwoHand = player2.hand.shift();
+        {
+        while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) {//Means the below code is active while a player doesn't yet have all cards
 		console.log(`${player1.name} plays: ${player1Card.rank} of ${player1Card.suit}`);   
     	console.log(`${player2.name} plays: ${player2Card.rank} of ${player2Card.suit}`);
     		//The console.log up above is for all relevant plays below so it'll pop up separate of the alert		 
@@ -77,10 +80,14 @@ function playGame(player1, player2) {
 				alert(`Player 2 Has Won This Round! Player2 now has ${playerTwoHand.length} !`);
 					//Same as above but reversed position
 }	else  (playerOneHand.score[0] === playerTwoHand.score[0])
-		 alert(`DRAW!`)
-		 war();
-}
-
+		 		alert(`DRAW!`)
+		 			war();
+					}
+				}
+				playGame();
+			}
+	
+		
 // Function for war if cards are same value
 function war(Player) {
 	let warPlayerOne = playerOneHand.slice(0, 3);
@@ -93,22 +100,21 @@ function war(Player) {
 		playerTwoHand.push(warPlayerTwo);
 		playerOneHand.pop(warPlayerOne);
 		alert(`Player 2 Won This War! Player2 now has ${playerTwoHand.length} !`)
+	} 
+
+
+	function winner(){
+			if (playerOneHand.length === 51) {
+				alert(`PLAYER1 WINS!!`);
+		} else if (playerTwoHand.length === 51) {
+				alert(`PLAYER2 WINS!!`);
+		} else {
+				alert(`You have reached diplomacy`);
+				}
+		}
 	}
 
-function winner() {
-	if (playerOneHand.length === 51) {
-		alert(`PLAYER1 WINS!!`);
-	} else if (playerTwoHand.length === 51) {
-		alert(`PLAYER2 WINS!!`);
-	} else {
-		alert(`You have reached diplomacy`);
-			}
-		}
-	winner();
-}	
-}	 
 
-playGame();
 
 
 
