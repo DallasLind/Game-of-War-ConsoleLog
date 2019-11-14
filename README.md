@@ -24,3 +24,4 @@ This was my first project from the ground-up utilizing Javascript without a stri
 * Add scoring 
 * Add rounds
 * Maybe potentially add an interface with CSS and more involved HTML
+* Flesh out my classes in the project to avoid having floating variables per the prompt.
