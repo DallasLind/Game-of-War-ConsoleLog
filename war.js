@@ -1,3 +1,4 @@
+console.log("We're live and ready to go to WAR!");
 let values  = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
 let suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
 
@@ -78,7 +79,7 @@ function turn(){
     }else if(cardA < cardB){
       winner("b");
     }else{
-      console.log("BATTLE!");
+      console.log("IT'S TIME FOR WAR!");
       for(let x = 0; x < 2; x++){
         draw();
       }
