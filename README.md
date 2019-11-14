@@ -20,8 +20,5 @@ If the two cards played are of equal value, then there is a "war".Both players p
 This was my first project from the ground-up utilizing Javascript without a strict tutorial, so attempting to put it together was already challenging. I feel as if I'm at a point where I understand how the syntax and concept works, but it's the putting it together cohesively with a programmtic mindset that continue to trips me up. If you have suggestions on how to improve it or what I should've done, don't hesitate to reach out! 
 
 ### Future Plans
-* Make it fully functional
-* Add scoring 
-* Add rounds
 * Maybe potentially add an interface with CSS and more involved HTML
-* Flesh out my classes in the project to avoid having floating variables per the prompt.
+
