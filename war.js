@@ -1,116 +1,105 @@
-window.onload = function(){}
-//Starts games upon loading
-console.log("We're live and ready to go to WAR!");
-//Variables to refer back to for the game
-let suits = ["heart","diamond","spade","club"];
-let ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"];
+let values  = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+let suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
 
-//create classes for card and player to reference later
-class Card {
-	constructor(suits, rank) {
-		this.suits = suits;
-		this.rank = rank;
-		this.score = score;
-			}
-		}
+//Shuffle deck of cards
 
-class Player {
-	constructor(name, hand){
-		this.name = name;
-		this.hand = hand;
-	}
+function shuffle(array){
+  let currentI = array.length;
+  let randomI;
+  let temporaryValue;
+  while(currentI > 0){
+    randomI   = Math.floor(Math.random() * currentI);
+    currentI -= 1;
+	temporaryValue       = array[currentI];
+    array[currentI]  = array[randomI];
+    array[randomI]   = temporaryValue;
+  }
+  return array;
 }
 
-//Assemble Deck
-let player1 = [];
-let player2 = [];
+//build deck
 
-
-let deck = [];
-
-function allCards() {
-    for(let i = 0; i < ranks.length; i++) {
-        for(let s = 0; s < suits.length; s++) {
-               let card = {Ranks: ranks[i], Suits: suits[i]};
-               deck.push(card);
-        }
+function buildDeck(){
+  let deck = [];
+  for(let suitI = 0; suitI < suits.length; suitI++){
+    for(let valueIndex = 0; valueIndex < values.length; valueIndex++){
+      deck.push({
+        "suit"  : suits[suitI],
+        "value" : values[valueIndex]
+      });
     }
   }
-
-allCards();
-//Shuffle cards 
-
-function shuffleDeck(deck) {
-    for(var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), 
-    	x = deck[--i], deck[i] = deck[j], deck[j] = x);
-			return deck;
+  return deck;
 }
 
-shuffleDeck(deck);
+function Player(){
+  this.deck     = [];
+  this.discard  = [];
+  this.card     = [];
+  this.total    = function(){
+    return this.deck.length + this.discard.length;
+  };
+}
 
-// Deal out cards to two players
+//draw cards
 
-function dealDeck() {
-	playerOneHand = deck.splice(0,26);
-	playerTwoHand = deck.splice(0,26);
+function draw(){
+  for(let x in players){
+    let player  = players[x];
+    if(player.deck.length === 0 && player.discard.length !== 0){
+      player.deck     = shuffle(player.discard);
+      player.discard  = [];
+    }else if(player.total() === 0){
+      return false;
+    }
+    player.card = player.deck.shift();
+    pot.push(player.card);
+    console.log(x + " DRAWS " + player.card["value"] + " TOTAL " + (player.total() + 1));
+  }
+}
+
+//dictate winner
+
+function winner(which){
+  let winner = players[which];
+  winner.discard = winner.discard.concat(pot);
+  pot = [];
+}
+
+//Who has which turn 
+
+function turn(){
+  do{
+    draw();
+    cardA = values.indexOf(players["a"].card["value"]);
+    cardB = values.indexOf(players["b"].card["value"]);
+    if(cardA > cardB){
+      winner("a");
+    }else if(cardA < cardB){
+      winner("b");
+    }else{
+      console.log("BATTLE!");
+      for(let x = 0; x < 2; x++){
+        draw();
+      }
+    }
+  }while(pot.length > 0);
 }
 
 
-// Games rules
+//new game
 
-function playGame(playerOneHand, playerTwoHand) {
-        while (playerOneHand.length !== 51 || playerTwoHand.length !== 51) {//Means the below code is active while a player doesn't yet have all cards
-		console.log(`Player1 plays: ${player1Card.rank} of ${player1Card.suit}`);   
-    	console.log(`Player2 plays: ${player2Card.rank} of ${player2Card.suit}`);
-    		//The console.log up above is for all relevant plays below so it'll pop up separate of the alert		 
-		{
-			if (playerOneHand.score[0] > playerTwoHand.score[0]) {
-				playerOneHand.push(playerTwoHand[0]);
-				playerTwoHand.pop(); 
-				alert(`Player 1 Has Won This Round! Player1 now has ${playerOneHand.length} !`);
-					//Should move and remove card from player2 to player 1
-	} else if (playerOneHand.score[0] < playerTwoHand.score[0]) {
-				playerTwoHand.push(playerOneHand[0]);
-				playerOneHand.pop(); 
-				alert(`Player 2 Has Won This Round! Player2 now has ${playerTwoHand.length} !`);
-					//Same as above but reversed position
-}	else  (playerOneHand.score[0] === playerTwoHand.score[0])
-		 		alert(`DRAW!`)
-		 			war();
-					}
-				}
-				playGame();
-			}
-	
-		
-// Function for war if cards are same value
-function war(Player) {
-	let warPlayerOne = playerOneHand.slice(0, 3);
-	let warPlayerTwo = playerTwoHand.slice(0, 3); 
-	if (playerOneHand.score[3] > playerTwoHand.score[3]) {
-		playerOneHand.push(warPlayerOne);
-		playerTwoHand.pop(warPlayerTwo);
-		alert(`Player 1 Won This War! Player1 now has ${playerOneHand.length} !`)
-	} else (playerTwoHand.score[3] > playerOneHand.score[3]) 
-		playerTwoHand.push(warPlayerTwo);
-		playerOneHand.pop(warPlayerOne);
-		alert(`Player 2 Won This War! Player2 now has ${playerTwoHand.length} !`)
-	} 
+let deck    = shuffle(buildDeck());
+let players = {"a" : new Player(), "b" : new Player()};
+let pot     = [];
+let turns   = 0;
 
-
-	function winner(){
-			if (playerOneHand.length === 51) {
-				alert(`PLAYER1 WINS!!`);
-		} else if (playerTwoHand.length === 51) {
-				alert(`PLAYER2 WINS!!`);
-		} else {
-				alert(`You have reached diplomacy`);
-				}
-		}
-	
-
-
-
-
-
-
+for(let x in players){
+  players[x].deck = deck.splice(0,26);
+}
+while(players["a"].total() !== 52 && players["a"].total() !== 0){
+  turns += 1;
+  console.log("TURN " + turns);
+  turn();
+}
+console.log("GAME OVER!");
